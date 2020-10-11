@@ -1,7 +1,16 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+
 export default class Navbar extends Component {
   render() {
+    const loginState = this.props.logined;
+
+    function onLogoutEvent(e) {
+      e.preventDefault();
+      this.props.onLogOut();
+    }
+
     return (
       <nav className="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div className="container">
@@ -38,8 +47,15 @@ export default class Navbar extends Component {
                 <a className="nav-link pointer">Contact</a>
               </li>
               <li className="nav-item">
-                {/* <a className="nav-link pointer" (click)="openDialog()" *ngIf="!(isLogin$ | async)">Login</a>
-          <a className="nav-link pointer" (click)="onLogOut()" *ngIf="isLogin$ | async">Logout</a> */}
+                {!loginState ? (
+                  <Link to="/login" className="nav-link pointer">
+                    Login
+                  </Link>
+                ) : (
+                  <a className="nav-link pointer" onClick={onLogoutEvent.bind(this)}>
+                    Logout
+                  </a>
+                )}
               </li>
             </ul>
           </div>

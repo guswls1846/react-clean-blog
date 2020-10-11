@@ -1,19 +1,26 @@
+/* eslint-disable jsx-a11y/anchor-has-content */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 export default class PostList extends Component {
   render() {
-    return (
-      <div className="post-preview">
-        <Link to="/post-view/1" className="pointer">
-          <h2 className="post-title">test</h2>
-          <h3 className="post-subtitle">test</h3>
-        </Link>
+    const posts = [];
+    for (let i = 0; i < this.props.posts.length; i++) {
+      let post = this.props.posts[i];
+      posts.push(
+        <div className="post-preview" key={post.id}>
+          <Link to={`/post-view/${post.id}`} className="pointer">
+            <h2 className="post-title">{post.title}</h2>
+            <h3 className="post-subtitle">{post.content}</h3>
+          </Link>
 
-        <p className="post-meta">
-          Posted by
-          <a href="#"></a>
-        </p>
-      </div>
-    );
+          <p className="post-meta">
+            Posted by {post.author}
+            <a href="#"></a>
+          </p>
+        </div>
+      );
+    }
+    return <div>{posts}</div>;
   }
 }

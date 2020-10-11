@@ -3,6 +3,7 @@ import React, { Component, Fragment } from "react";
 import style from "../assets/styles/clean-blog.module.css";
 import PostList from "./PostList";
 import { Link } from "react-router-dom";
+import PostListContainer from "../containers/PostListContainer";
 export default class Home extends Component {
   render() {
     const h1Style = {
@@ -22,7 +23,7 @@ export default class Home extends Component {
             <app-preview-post [post]="post"></app-preview-post>
             <hr />
             </div> */}
-              <PostList></PostList>
+              <PostListContainer></PostListContainer>
 
               <div className="clearfix">
                 <Link to="/post-write" className={`${style.btn} btn-secondary float-left pointer`}>

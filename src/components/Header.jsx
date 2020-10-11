@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Background from "../assets/images/home-bg.jpg";
-export default class Header extends Component {
+import { connect } from "react-redux";
+class Header extends Component {
   render() {
     const backgroundImage = {
       backgroundImage: `url(${Background})`,
@@ -24,3 +25,5 @@ export default class Header extends Component {
     );
   }
 }
+
+export default connect()(Header);
