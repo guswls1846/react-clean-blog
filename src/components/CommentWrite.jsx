@@ -3,21 +3,39 @@ import React, { Component } from "react";
 export default class CommentWrite extends Component {
   constructor(props) {
     super(props);
+    const setCommentID = this.setCommentID();
     this.state = {
-      value: "바르고 고운말만 입력해주세요 ^.^",
+      id: setCommentID,
+      content: "",
+      commentor: this.props.currentUser.username,
+      postID: this.props.postID,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  setCommentID() {
+    let today = new Date();
+    let randomID = "xxxxyyyxyxy".replace(/[xy]/g, (c) => {
+      let r = (Math.random() * 16) | 0,
+        v = c === "x" ? r : (r & 0x3) | 0x8;
+      return v.toString(16);
+    });
+
+    return `${today.getFullYear()}${today.getMonth() + 1}${today.getDate()}-${randomID}`;
+  }
+
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    this.setState({ content: event.target.value });
   }
 
   handleSubmit(event) {
-    alert("An essay was submitted: " + this.state.value);
     event.preventDefault();
+    const setCommentID = this.setCommentID();
+    this.setState({ id: setCommentID });
+    this.props.commentWrite(this.state);
+    this.setState({ content: "" });
   }
 
   render() {
@@ -31,7 +49,7 @@ export default class CommentWrite extends Component {
                   <label>댓글:</label>
                 </div>
                 <div className="form-group" style={{ display: "flex" }}>
-                  <textarea className="form-control" value={this.state.value} onChange={this.handleChange} />
+                  <textarea className="form-control" value={this.state.content} onChange={this.handleChange} placeholder="바르고 고운말만 입력해주세요 :)" />
                   <input type="submit" value="확인" />
                 </div>
               </div>

@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import Login from "../components/Login";
 import store from "../store";
 function loginPageState(state) {
-  return { currentUser: state.currentUser, logined: state.logined };
+  return { currentUser: state.currentUser, loggined: state.loggined };
 }
 
 function loginPageDispatch(dispatch) {

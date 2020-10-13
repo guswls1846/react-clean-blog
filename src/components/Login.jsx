@@ -29,7 +29,7 @@ export default class Login extends Component {
       this.props.login(this.state.username, this.state.password);
 
       setTimeout(() => {
-        if (this.props.logined) {
+        if (this.props.loggined) {
           this.setState({ loading: false });
           this.props.history.push("/");
         }

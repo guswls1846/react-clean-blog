@@ -1,6 +1,10 @@
 ### OverView
 
 Angular로 만들어진 https://github.com/brookton/clean-angular-blog-template의 UI를 React로 변경했습니다.
+React프로젝트를 처음 작업해봐서 React의 보편적인 스타일 가이드와 많이 다를 것입니다.(프로젝트 구조, 파일명, 함수명,store와 redux의 구조)
+프로젝트를 보고 좋은 가이드를 알려주시거나 부족한 부분을 건드려 주시면 수용하겠습니다. 많이 봐주세요!!
+
+백엔드 서버는 연결이 안되어있고 react-redux, react-persist를 이용해 로컬스토리지에 데이터가 저장되게 해놨습니다.
 
 ### `yarn start`
 

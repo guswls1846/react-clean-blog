@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import Navbar from "../components/Navbar";
 function navbarState(state) {
-  return { logined: state.logined };
+  return { loggined: state.loggined };
 }
 function navbarDispatch(dispatch) {
   return {

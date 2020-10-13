@@ -2,15 +2,19 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import store from "./store";
+import { persistStore } from "redux-persist";
+import { PersistGate } from "redux-persist/integration/react";
+import App from "./App.jsx";
+import * as serviceWorker from "./serviceWorker";
 import "./assets/styles/clean-blog.css";
 import "bootstrap/dist/css/bootstrap.css";
 
-import App from "./App.jsx";
-import * as serviceWorker from "./serviceWorker";
-
+const persistor = persistStore(store);
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <PersistGate loading={null} persistor={persistor}>
+      <App />
+    </PersistGate>
   </Provider>,
   document.getElementById("root")
 );

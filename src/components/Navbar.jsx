@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default class Navbar extends Component {
   render() {
-    const loginState = this.props.logined;
+    const loginState = this.props.loggined;
 
     function onLogoutEvent(e) {
       e.preventDefault();

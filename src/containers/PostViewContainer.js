@@ -2,15 +2,14 @@ import { connect } from "react-redux";
 import PostView from "../components/PostView";
 
 function postViewState(state) {
-  return { posts: state.posts };
+  return { posts: state.posts, currentUser: state.currentUser.username };
 }
 
 function postViewDispatch(dispatch) {
   return {
-    // login: (username, password) => {
-    //   console.log(username, password);
-    //   dispatch({ type: "LOGIN", username: username, password: password });
-    // },
+    postRemove: (id) => {
+      dispatch({ type: "POST_REMOVE", id: id });
+    },
   };
 }
 export default connect(postViewState, postViewDispatch)(PostView);

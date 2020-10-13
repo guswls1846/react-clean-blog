@@ -11,7 +11,6 @@ export default class PostList extends Component {
         <div className="post-preview" key={post.id}>
           <Link to={`/post-view/${post.id}`} className="pointer">
             <h2 className="post-title">{post.title}</h2>
-            <h3 className="post-subtitle">{post.content}</h3>
           </Link>
 
           <p className="post-meta">
@@ -21,6 +20,7 @@ export default class PostList extends Component {
         </div>
       );
     }
+
     return <div>{posts}</div>;
   }
 }
