@@ -6,6 +6,8 @@ React프로젝트를 처음 작업해봐서 React의 보편적인 스타일 가�
 
 백엔드 서버는 연결이 안되어있고 react-redux, react-persist를 이용해 로컬스토리지에 데이터가 저장되게 해놨습니다.
 
+Demo Site: http://react-clean-blog.s3-website.ap-northeast-2.amazonaws.com/
+
 ### `yarn start`
 
 Runs the app in the development mode.<br />
