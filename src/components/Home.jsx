@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component, Fragment } from "react";
 import style from "../assets/styles/clean-blog.module.css";
-import PostList from "./PostList";
 import { Link } from "react-router-dom";
 import PostListContainer from "../containers/PostListContainer";
+import PagenationsContainer from "../containers/PagenationsContainer";
 export default class Home extends Component {
   render() {
     const h1Style = {
@@ -12,6 +12,11 @@ export default class Home extends Component {
       color: "lightslategray",
     };
 
+    const indexOfLastPost = this.props.currentPage * this.props.postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - this.props.postsPerPage;
+    const currentPosts = this.props.posts.slice(indexOfFirstPost, indexOfLastPost);
+    console.log(currentPosts);
+
     return (
       <>
         <div className="container">
@@ -19,11 +24,7 @@ export default class Home extends Component {
 
           <div className="row">
             <div className="col-lg-8 col-md-10 mx-auto">
-              {/* <div *ngFor="let post of posts$ | async">
-            <app-preview-post [post]="post"></app-preview-post>
-            <hr />
-            </div> */}
-              <PostListContainer></PostListContainer>
+              <PostListContainer currentPosts={currentPosts}></PostListContainer>
 
               <div className="clearfix">
                 <Link to="/post-write" className={`${style.btn} btn-secondary float-left pointer`}>
@@ -34,6 +35,7 @@ export default class Home extends Component {
               </div>
             </div>
           </div>
+          <PagenationsContainer postsPerPage={5} totalPosts={this.props.posts.length} paginate={1} />
         </div>
       </>
     );

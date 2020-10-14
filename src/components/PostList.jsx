@@ -5,8 +5,9 @@ import { Link } from "react-router-dom";
 export default class PostList extends Component {
   render() {
     const posts = [];
-    for (let i = 0; i < this.props.posts.length; i++) {
-      let post = this.props.posts[i];
+    for (let i = 0; i < this.props.currentPosts.length; i++) {
+      let post = this.props.currentPosts[i];
+
       posts.push(
         <div className="post-preview" key={post.id}>
           <Link to={`/post-view/${post.id}`} className="pointer">
