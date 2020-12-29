@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 
-import Routes from "./components/Routes";
+import {MainRouter} from "./router/MainRouter";
 
 export default class App extends React.Component {
   render() {
@@ -22,7 +22,7 @@ export default class App extends React.Component {
           <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         </Helmet>
 
-        <Routes></Routes>
+        <MainRouter></MainRouter>
       </div>
     );
   }
