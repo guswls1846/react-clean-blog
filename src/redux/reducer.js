@@ -1,4 +1,4 @@
-import createReducer from "./common/createReducer";
+import createReducer from "./createReducer";
 
 const initState = {
   loggined: false,
